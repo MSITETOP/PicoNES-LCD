@@ -47,7 +47,7 @@ namespace picosystem {
 
   // input pins
   enum button {
-    UP    = 23,
+    UP    = 15,
     DOWN  = 20,
     LEFT  = 22,
     RIGHT = 21,
