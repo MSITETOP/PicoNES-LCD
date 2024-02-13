@@ -33,7 +33,7 @@ namespace picosystem {
   struct repeating_timer _audio_update_timer;
 
   enum pin {
-    RED = 14, GREEN = 13, BLUE = 15,                  // user rgb led
+    RED = 14, GREEN = 13, BLUE = 0,                  // user rgb led
     CS = 5, SCK = 6, MOSI  = 7,                       // spi
     VSYNC = 8, DC = 9, LCD_RESET = 4, BACKLIGHT = 12, // screen
     AUDIO = 11, RX = 1,                                      // audio //speaker out
@@ -386,7 +386,17 @@ namespace picosystem {
     _screen_command(SLPOUT);
     _screen_command(DISPON);
     _screen_command(CASET,     4, "\x00\x00\x00\xef");
-    _screen_command(RASET,     4, "\x00\x00\x00\xef");
+    _screen_command(RASET,     4, "\x00\x00\x01\x3f"); // height 320
+    // Заливка экрана черным, так как дисплей у нас больше
+    _screen_command(RAMWR); 
+    gpio_put(CS, 0);
+    gpio_put(DC, 1); // data mode
+    for (int i = 0; i < 240 * 320; i++) {
+      spi_write_blocking(spi0, (const uint8_t*)"\x00\x00" , 2);
+    } 
+    sleep_ms(100);
+    // Возвращаем размер области к 240*240
+    _screen_command(RASET,     4, "\x00\x3a\x01\x29"); // height 240 center
     _screen_command(RAMWR);
 
     // switch st7789 into data mode so that we can start transmitting frame
