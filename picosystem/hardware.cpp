@@ -76,7 +76,7 @@ namespace picosystem {
 
   float _battery_voltage() {
     // convert adc reading to voltage
-    adc_select_input(0);
+    adc_select_input(3);
     float v = (float(adc_read()) / (1 << 12)) * 3.3f;
     return v * 3.0f; // correct for voltage divider on board
   }
