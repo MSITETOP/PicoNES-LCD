@@ -37,7 +37,7 @@ namespace picosystem {
     CS = 5, SCK = 6, MOSI  = 7,                       // spi
     VSYNC = 8, DC = 9, LCD_RESET = 4, BACKLIGHT = 12, // screen
     AUDIO = 11, RX = 1,                                      // audio //speaker out
-    CHARGE_LED = 2, CHARGING = 24, BATTERY_LEVEL = 26 // battery / charging
+    CHARGE_LED = 2, CHARGING = 24, BATTERY_LEVEL = 29 // battery / charging
   };
 
   void init_inputs(uint32_t pin_mask) {
@@ -365,7 +365,7 @@ namespace picosystem {
 
     _screen_command(SWRESET);
     sleep_ms(5);
-    _screen_command(MADCTL,    1, "\x04");
+    _screen_command(MADCTL,    1, "\xc0");
     _screen_command(TEON,      1, "\x00");
     _screen_command(FRMCTR2,   5, "\x0C\x0C\x00\x33\x33");
     _screen_command(COLMOD,    1, "\x03");
