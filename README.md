@@ -73,4 +73,4 @@
 Оригинальная развлекательная система Nintendo имеет разрешение 256x240 пикселей. Устройство имеет разрешение 284x240 пикселей. Поэтому на устройстве первые и последние 8 пикселей каждой горизонтальной линии не видны.
 
 ## Credits
-InfoNes запрограммирован [Джеем Кумогатой](https://github.com/jay-kumogata/InfoNES) и портирован для вывода DVI на Raspberry PI Pico [Шуичи Такано](https://github.com/shuichitakano/pico-infones), добавлен LCD экран [fhoedemakers](https://github.com/fhoedemakers/PicoSystem_InfoNes). Я использовал порт fhoedemakers в качестве отправной точки для этого проекта.
+InfoNes запрограммирован [Джеем Кумогатой](https://github.com/jay-kumogata/InfoNES) и портирован для вывода DVI на Raspberry PI Pico [Шуичи Такано](https://github.com/shuichitakano/pico-infones), добавлен LCD экран и кнопки [fhoedemakers](https://github.com/fhoedemakers/PicoSystem_InfoNes). Я использовал порт fhoedemakers в качестве отправной точки для этого проекта.
